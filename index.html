@@ -293,6 +293,7 @@
     </div>
 
     <button class="reward-button" onclick="showRewardedAd()">Watch Ad & Earn</button>
+    <button class="reward-button clear-button" onclick="clearData()">Clear Data</button>
 
     <!-- Bottom Navigation -->
     <div class="bottom-nav">
@@ -342,7 +343,7 @@
                     document.getElementById('reward-count').textContent = rewardCount;
                     document.getElementById('balance').textContent = balance.toFixed(2);
 
-                    //alert("Ad Completed! You Earned $0.10!");
+                    //alert("Ad Completed! You Earned $0.01!");
                 }).catch(error => {
                     console.error("Ad failed to load or display:", error);
                 });
@@ -376,6 +377,14 @@
         }
 
         createBubbles();
+
+         function clearData() {
+        localStorage.removeItem("rewardCount");
+        localStorage.removeItem("balance");
+        document.getElementById("reward-count").innerText = "0";
+        document.getElementById("balance").innerText = "0.00";
+        alert("Data Cleared Successfully!");
+        }
     </script>
 
 </body>
